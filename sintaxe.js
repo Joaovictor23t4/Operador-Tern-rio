@@ -7,17 +7,9 @@ var boasVindas = `Seja bem-vinda ${nome ? nome : "visitante"}
 alert(boasVindas);
 */
 
-const num = 30.2;
-console.log(parseInt(num));
-
 const anoNascimento = 1950
 
- //Processamento
  let mensagemFinal = "";
  (anoNascimento < 1900) ? mensagemFinal = "Você é imortal" : (anoNascimento > 1900 && anoNascimento < 2000) ? mensagemFinal = "Viu o Bug do Milênio" : mensagemFinal = "Não viu o Bug do Milênio";
 
  console.log(mensagemFinal);
-
- let num1 = 11.5;
-
- console.log(parseInt(num1));
