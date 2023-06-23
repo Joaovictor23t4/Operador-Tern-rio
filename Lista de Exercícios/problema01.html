@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maioridade</title>
+</head>
+<body>
+    <h1>Programa Maioridade</h1>
+
+    <p>
+        Idade:
+        <input type="text" name="inIdade" id="inIdade"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver Situação" name="btSituacao" id="btSituacao"/>
+    </p>
+
+    <h3 id="outSituacao"></h3>
+
+    <script>
+        //Problema: Maioridade
+        //Leia a idade de uma pessoa e informe se ela já chegou à maioridade.Se ela ainda não chegou, informe quantos anos faltam para a maioridade.
+
+        //Entrada
+        function verSituacao() {
+            let inIdade = document.getElementById("inIdade").value*1;
+        //Processamento
+        (inIdade >= 18) ? document.getElementById("outSituacao").textContent = `Ja tem maioridade!` : document.getElementById("outSituacao").textContent = `Não tem maioridade!`;
+        }
+        //Saída
+        let btSituacao = document.getElementById("btSituacao");
+        btSituacao.addEventListener("click", verSituacao);
+    </script>
+</body>
+</html>

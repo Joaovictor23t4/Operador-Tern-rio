@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleitor</title>
+</head>
+<body>
+    <h1>Programa Eleitor</h1>
+
+    <p>
+        Idade:
+        <input type="text" name="inAnoDeNascimento" id="inAnoDeNascimento"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver título de eleitor" name="btTituloEleitor" id="btTituloEleitor"/>
+    </p>
+
+    <h3 id="outTitulo"></h3>
+
+    <script>
+        //Problema: Eleitor
+        //Considerando que no Brasil é possível votar a partir dos 16 anos de idade, leia o ano de nascimento de uma pessoa e informe se ela poderá votar no ano atual. Ignore mês e dia de nascimento.
+    
+        //Entrada
+        function calcularAnoTitulo() {
+            let inAnoDeNascimento = document.getElementById("inAnoDeNascimento").value*1;
+        //Processamento
+        let calculo = 2023 - inAnoDeNascimento;
+
+        (calculo >= 16) ? document.getElementById("outTitulo").textContent = `Já pode votar!` : document.getElementById("outTitulo").textContent = `Ainda não pode votar!`;
+        }
+        //Saída
+        let btTituloEleitor = document.getElementById("btTituloEleitor");
+        btTituloEleitor.addEventListener("click", calcularAnoTitulo);
+    </script>
+</body>
+</html>

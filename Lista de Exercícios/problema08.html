@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meio de Transporte</title>
+</head>
+<body>
+    <h1>Programa Meio de Transporte</h1>
+
+    <p>
+        Preço Gasolina (litro):
+        <input type="text" name="inPrecoGasolina" id="inPrecoGasolina"/>
+    </p>
+
+    <p>
+        Quantidade de Gasolina para ir ao Trabalho:
+        <input type="text" name="inQtdGasolina" id="inQtdGasolina"/>
+    </p>
+
+    <p>
+        Preço Transporte Público:
+        <input type="text" name="inPrecoTransporte" id="inPrecoTransporte"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver melhor meio de transporte" name="btMelhorMeio" id="btMelhorMeio"/>
+    </p>
+
+    <h3 id="outEscolhido"></h3>
+
+    <script>
+        //Problema: Meio de transporte mais barato
+        // Faça um script que peça para o usuário informar o preço do litro do combustível e a quantidade de litros utilizados para se deslocar para o trabalho diariamente.
+        // Peça também ao programa para o usuário informar o preço do transporte público que deverá pagar para se deslocar ao trabalho diariamente.
+        // Verifique qual é o meio de transporte mais barato e apresente em tela, especificando quanto custará para ir e voltar do trabalho diariamente.
+    
+        //Entrada
+        function escolherMelhorMeio() {
+            let inPrecoGasolina = document.getElementById("inPrecoGasolina").value.replace("," , ".")*1;
+            let inQtdGasolina = document.getElementById("inQtdGasolina").value*1;
+            let inPrecoTransporte = document.getElementById("inPrecoTransporte").value.replace("," , ".")*1;
+        //Processamento
+        let gasolina = inPrecoGasolina * (inQtdGasolina * 2);
+        let transporte = inPrecoTransporte * 2;
+
+        (gasolina > transporte) ? document.getElementById("outEscolhido").textContent = `O meio de transporte mais barato é o público, custando R$${transporte.toFixed(2).replace("." , ",")} ida e volta` : document.getElementById("outEscolhido").textContent = `O meio de transporte mais barato é usando o seu carro, custando R$${gasolina.toFixed(2).replace("." , ",")} ida e volta`
+        }
+        //Saída
+        let btMelhorMeio = document.getElementById("btMelhorMeio");
+        btMelhorMeio.addEventListener("click", escolherMelhorMeio);
+    </script>
+</body>
+</html>

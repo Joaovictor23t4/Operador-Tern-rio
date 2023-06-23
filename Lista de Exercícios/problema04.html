@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogal</title>
+</head>
+<body>
+    <h1>Programa Vogal</h1>
+
+    <p>
+        Insira uma letra:
+        <input type="text" name="inLetra" id="inLetra">
+    </p>
+
+    <p>
+        <input type="button" value="Ver se é vogal" name="btVerificar" id="btVerificar"/>
+    </p>
+
+    <h3 id="outVerificado"></h3>
+
+    <script>
+        //Problema: Vogal
+        //Construa um programa que leia um caractere e informe se este caractere é uma vogal.
+    
+        //Entrada
+        function verificarLetra() {
+            let inLetra = document.getElementById("inLetra").value.toUpperCase();
+        //Processamento
+        (inLetra === "A" || inLetra === "E" || inLetra === "I" || inLetra === "O" || inLetra === "U") ? document.getElementById("outVerificado").textContent = `A letra é uma vogal` : document.getElementById("outVerificado").textContent = `É uma consoante`;
+        }
+        //Saída
+        let btVerificar = document.getElementById("btVerificar");
+        btVerificar.addEventListener("click", verificarLetra);
+    </script>
+</body>
+</html>

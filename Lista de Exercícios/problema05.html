@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aumento de Preço</title>
+</head>
+<body>
+    <h1>Programa Aumento de Preço</h1>
+
+    <p>
+        Preço do produto:
+        <input type="text" name="inPreco" id="inPreco"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver aumento" name="btAumento" id="btAumento"/>
+    </p>
+
+    <h3 id="outPrecoAumentado"></h3>
+
+    <script>
+        //Problema: Aumento de Preço
+        //Recebe o preço do produto e calcula o aumento do preço, baseado no seguinte critério:
+            //- até 280(inclusive): aumento de 20 %
+            //- até 700(inclusive): aumento de 15 %
+            //- até 1500(inclusive): aumento de 10 %
+            //- acima de 1500: aumento de 5 %
+        
+        //Entrada
+        function calcularAumento() {
+            let inPreco = document.getElementById("inPreco").value.replace("," , ".")*1;
+        //Processamento
+            let preco280 = inPreco + (inPreco * 0.2);
+            let preco700 = inPreco + (inPreco * 0.15);
+            let preco1500 = inPreco + (inPreco * 0.1);
+            let precoAcima1500 = inPreco + (inPreco * 0.05);
+
+        (inPreco <= 280) ? document.getElementById("outPrecoAumentado").textContent = `Preço Aumentado: R$${preco280.toFixed(2).replace("." , ",")}` : (inPreco <= 700) ? document.getElementById("outPrecoAumentado").textContent = `Preço Aumentado: R${preco700.toFixed(2).replace("." , ",")}` : (inPreco <= 1500) ? document.getElementById("outPrecoAumentado").textContent = `Preço Aumentado: R${preco1500.toFixed(2).replace("." , ",")}` : document.getElementById("outPrecoAumentado").textContent = `Preço Aumentado: R${precoAcima1500.toFixed(2).replace("." , ",")}`;
+        }
+        //Saída
+        let btAumento = document.getElementById("btAumento");
+        btAumento.addEventListener("click", calcularAumento);
+    </script>
+</body>
+</html>

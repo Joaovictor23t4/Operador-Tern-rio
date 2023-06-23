@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hora Trabalhada</title>
+</head>
+<body>
+    <h1>Programa Hora Trabalhada</h1>
+
+    <p>
+        Horas Trabalhadas (semanalmente):
+        <input type="text" name="inQtdHorasTrabalhadas" id="inQtdHorasTrabalhadas"/>
+    </p>
+
+    <p>
+        Valor por hora trabalhada:
+        <input type="text" name="inValorPorHoraTrabalhada" id="inValorPorHoraTrabalhada"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver Adicional" name="btAdicional" id="btAdicional"/>
+    </p>
+    
+    <h3 id="outBonus"></h3>
+
+    <script>
+        //Problema: Calcular valor da hora trabalhada
+        // Faça um script que peça para o usuário informar a quantidade de horas trabalhadas semanalmente e quanto que recebe por hora trabalhada.
+        // Se o total de horas trabalhadas for até 45 horas (inclusive), não haverá adicional.
+        // Se o total de horas trabalhadas for até 60 horas (inclusive), haverá adicional de 20%.
+        // Se o total de horas trabalhadas ultrapassar 60 horas, haverá adicional de 30%.
+        // Apresente o salário final recebido pelo funcionário semanalmente e o preço de cada hora trabalhada.
+    
+        //Entrada
+        function calcularHoraTrabalhada() {
+            let inQtdHorasTrabalhadas = document.getElementById("inQtdHorasTrabalhadas").value*1;
+            let inValorPorHoraTrabalhada = document.getElementById("inValorPorHoraTrabalhada").value.replace("," , ".")*1;
+        //Processamento
+        let salarioPadrao = inValorPorHoraTrabalhada * inQtdHorasTrabalhadas;
+        let bonus60 = salarioPadrao + (salarioPadrao * 0.2);
+        let bonusMais60 = salarioPadrao + (salarioPadrao * 0.3);
+
+        (inQtdHorasTrabalhadas <=45) ? document.getElementById("outBonus").innerHTML = `Salário: R$${salarioPadrao.toFixed(2).replace("." , ",")} <br>Adicional: sem adicional` : (inQtdHorasTrabalhadas <= 60) ? document.getElementById("outBonus").innerHTML = `Salário: R$${salarioPadrao.toFixed(2).replace("." , ",")} <br>Com Adicional: R$${bonus60.toFixed(2).replace("." , ",")}` : document.getElementById("outBonus").innerHTML = `Salário: R$${salarioPadrao.toFixed(2).replace("." , ",")} <br>Com Adicional: R$${bonusMais60.toFixed(2).replace("." , ",")}`
+        }
+        //Saída
+        let btAdicional = document.getElementById("btAdicional");
+        btAdicional.addEventListener("click", calcularHoraTrabalhada);
+    </script>
+</body>
+</html>

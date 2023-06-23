@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota para Conceito</title>
+</head>
+<body>
+    <h1>Programa Nota para Conceito</h1>
+
+    <p>
+        Nota:
+        <input type="text" name="inNota" id="inNota"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver Nota Para Conceito" name="btNotaConceito" id="btNotaConceito"/>
+    </p>
+
+    <h3 id="outConceito"></h3>
+
+    <script>
+        //Problema: Nota para Conceito
+        // Converta a nota para conceito, conforme a tabela abaixo:
+        // Nota                     Conceito
+        // Entre 10.0 e 9.0            A
+        // Entre 8.9 e 8.0             B
+        // Entre 7.9 e 7.0             C
+        // Entre 6.9 e 6.0             D
+        // Entre 5.9 e zero            E
+    
+        //Entrada
+        function calcularConceito() {
+            let inNota = document.getElementById("inNota").value.replace("," , ".")*1;
+        //Processamento
+        (inNota >= 9 && inNota <= 10) ? document.getElementById("outConceito").textContent = `Nota Conceito: A` : (inNota >= 8 && inNota <= 8.9) ? document.getElementById("outConceito").textContent = `Nota Conceito: B` : (inNota >= 7 && inNota <= 7.9) ? document.getElementById("outConceito").textContent = `Nota Conceito: C` : (inNota >= 6 && inNota <= 6.9) ? document.getElementById("outConceito").textContent = `Nota Conceito: D` : (inNota >= 0 && inNota <= 5.9) ? document.getElementById("outConceito").textContent = `Nota Conceito: E` : document.getElementById("outConceito").textContent = `Valor Inválido!`;
+        }
+        //Saída
+        let btNotaConceito = document.getElementById("btNotaConceito");
+        btNotaConceito.addEventListener("click", calcularConceito);
+    </script>
+</body>
+</html>

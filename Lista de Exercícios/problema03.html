@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número</title>
+</head>
+<body>
+    <h1>Programa Maior Número</h1>
+
+    <p>
+        Número 1:
+        <input type="text" name="inNum1" id="inNum1"/>
+    </p>
+
+    <p>
+        Número 2:
+        <input type="text" name="inNum2" id="inNum2"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver Maior Número" name="btMaior" id="btMaior"/>
+    </p>
+
+    <h3 id="outMaiorNumero"></h3>
+
+    <script>
+        //Problema: Maior 2
+        //Construa um algoritmo que leia dois números inteiros. Verifique qual dos dois números é maior e o escreva.
+    
+        //Entrada
+        function calcularMaiorNumero() {
+            let inNum1 = document.getElementById("inNum1").value*1;
+            inNum1 = parseInt(inNum1);
+
+            let inNum2 = document.getElementById("inNum2").value*1;
+            inNum2 = parseInt(inNum2);
+        //Processamento
+        (inNum1 > inNum2) ? document.getElementById("outMaiorNumero").textContent = `${inNum1} é maior que ${inNum2}` : document.getElementById("outMaiorNumero").textContent = `${inNum2} é maior que ${inNum1}`;
+        }
+        //Saída
+        let btMaior = document.getElementById("btMaior");
+        btMaior.addEventListener("click", calcularMaiorNumero);
+    </script>
+</body>
+</html>

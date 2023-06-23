@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idade Humana</title>
+</head>
+<body>
+    <h1>Programa Idade Humana</h1>
+
+    <p>
+        Idade Cão:
+        <input type="text" name="inIdade" id="inIdade"/>
+    </p>
+
+    <p>
+        Informe o porte do seu cão: pequeno, médio ou grande.
+    </p>
+
+    <p>
+        Porte:
+        <input type="text" name="inPorte" id="inPorte"/>
+    </p>
+
+    <p>
+        <input type="button" value="Ver Nova Idade" name="btIdadeModificada" id="btIdadeModificada"/>
+    </p>
+
+    <h3 id="outIdadeNova"></h3>
+    <script>
+        //Problema: Idade Humana
+        //É sabido que os caẽs amadurecem mais rapidamente do que os seres humanos (na verdade, alguns seres humanos parecem nunca amadurecer).
+        // Calcule a idade do seu cão, baseada nos seguintes fatores:
+        // - cães de porte pequeno: fator 5
+        // - cães de porte médio: fator 6
+        // - cães grandes: fator 7.
+    
+        //Entrada
+        function calcularIdade() {
+            let inIdade = document.getElementById("inIdade").value*1;
+            let inPorte = document.getElementById("inPorte").value.replace("é" , "e").toUpperCase();
+        //Processamento
+        let portePequeno = inIdade * 5;
+        let porteMedio = inIdade * 6;
+        let porteGrande = inIdade * 7;
+
+        (inPorte === "PEQUENO") ? document.getElementById("outIdadeNova").textContent = `Nova Idade: ${portePequeno} anos` : (inPorte === "MEDIO") ? document.getElementById("outIdadeNova").textContent = `Nova Idade: ${porteMedio} anos` : (inPorte === "GRANDE") ? document.getElementById("outIdadeNova").textContent = `Nova Idade: ${porteGrande} anos` : document.getElementById("outIdadeNova").textContent = `Porte Inválido`;
+        }
+        //Saída
+        let btIdadeModificada = document.getElementById("btIdadeModificada");
+        btIdadeModificada.addEventListener("click", calcularIdade);
+    </script>
+</body>
+</html>
